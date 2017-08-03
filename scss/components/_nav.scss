@@ -1,0 +1,43 @@
+nav{
+
+	font-family: sans-serif;
+	z-index: 4;
+	display: inline-block;
+	height: 50px;
+	width : 100%;
+	padding : 0;
+	background-color: black;
+	color: white;
+	font-size: 18;
+
+	@media screen and (max-width:370px){
+		height: 50px;
+		padding: 5 0 10 5;
+	}
+
+	h1{
+		margin: auto;
+		display: inline;
+		font-weight: 200;
+		@media screen and (max-width:370px){
+			font-size: 18px;
+		}
+	}
+
+	button{
+		min-height : 36px;
+		min-width: 36px;
+		display: inline-block;
+		padding: 5px;
+		margin: auto .5em .5em auto;
+		color: white;
+		font-size: 18px;
+		outline: none;
+		background-color: black;
+		border: 1px solid white;
+		border-radius: 4px;
+		cursor: pointer;
+
+	}
+
+}

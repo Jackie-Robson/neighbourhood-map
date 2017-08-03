@@ -1,0 +1,77 @@
+#map {
+  max-width: 100%;
+  height: calc(100vh - 50px);
+  transform: translate3d(0, 0, 0);
+  transition: .5s; }
+  #map.open {
+    transform: translate3d(320px, 0, 0); }
+
+.infowindowImg {
+  height: 100px;
+  width: 200px; }
+
+nav {
+  font-family: sans-serif;
+  z-index: 4;
+  display: inline-block;
+  height: 50px;
+  width: 100%;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-size: 18; }
+  @media screen and (max-width: 370px) {
+    nav {
+      height: 50px;
+      padding: 5 0 10 5; } }
+  nav h1 {
+    margin: auto;
+    display: inline;
+    font-weight: 200; }
+    @media screen and (max-width: 370px) {
+      nav h1 {
+        font-size: 18px; } }
+  nav button {
+    min-height: 36px;
+    min-width: 36px;
+    display: inline-block;
+    padding: 5px;
+    margin: auto .5em .5em auto;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer; }
+
+#menu {
+  display: inline;
+  position: fixed;
+  left: 0;
+  width: 290px;
+  height: 100%;
+  padding: 15px;
+  color: white;
+  background-color: black;
+  z-index: 2;
+  transform: translate3d(-320px, 0, 0);
+  transition: 0.5s;
+  font-family: sans-serif; }
+  #menu p {
+    display: inline; }
+  #menu input {
+    display: inline; }
+  #menu.open {
+    transform: translate3d(0, 0, 0); }
+
+.hide {
+  display: none; }
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: #e5e3df; }
+
+/*# sourceMappingURL=main.css.map */

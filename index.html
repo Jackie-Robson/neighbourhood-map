@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="./scss/main.css">
+
+</head>
+
+<body>
+
+	<header>
+		<nav>
+			<button data-bind="click: openMenu" id="menuBtn">&#9776;</button>
+			<h1> Browse my frequented locations</h1>
+		</nav>
+	</header>
+
+	<div id="menu">
+
+<!-- filter options go here -->
+
+	<form id="filterForm" data-bind="">
+		<input data-bind="value: filter ,valueUpdate: 'keyup'" autocomplete="off" type="text" >
+		<p>Filter Locations  &#8954;</p>
+	        <ul data-bind="foreach: markers" >
+	            <li data-bind="index: $data">
+	                <a data-bind="text: $data.title, click: listClick"></a>
+	</form>
+	</div>
+
+<!-- the main map div -->
+
+  <div id="map"></div>
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/libs/knockout.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBbAYqvA-HeajtPp1Pl1LUlqqHRUzn_67k"></script>
+<script asyn defer type="text/javascript" src="js/components/model.js"></script>
+<script async type="text/javascript" src="js/components/mapControl.js"   ></script>
+<script async defer src="js/components/ViewModel.js"></script>
+
+</html>

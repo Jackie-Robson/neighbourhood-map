@@ -1,0 +1,58 @@
+#map {
+  width: 100%;
+  height: calc(100vh - 70px);
+  transform: translate3d(0, 0, 0);
+  transition: .5s; }
+  #map.open {
+    transform: translate3d(320px, 0, 0); }
+
+nav {
+  z-index: 4;
+  display: inline-block;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 18; }
+  nav h1 {
+    display: inline;
+    font-weight: 200; }
+  nav #menuBtn {
+    display: inline-block;
+    padding: 1px;
+    margin: .5em .5em auto .5em;
+    width: 30px;
+    height: 30px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer; }
+
+#menu {
+  display: inline;
+  position: fixed;
+  left: 0;
+  width: 290px;
+  height: 100%;
+  padding: 15px;
+  color: white;
+  background-color: black;
+  z-index: 2;
+  transform: translate3d(-320px, 0, 0);
+  transition: 0.5s; }
+  #menu.open {
+    transform: translate3d(0, 0, 0); }
+
+.hide {
+  opacity: 0; }
+
+* {
+  font-family: Roboto; }
+
+body {
+  margin: 0;
+  height: 100%; }

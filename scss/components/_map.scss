@@ -1,0 +1,18 @@
+#map {
+	max-width: 100%;
+	height:  calc(100vh - 50px);
+	transform: translate3d(0,0,0);
+	transition: .5s;
+
+
+	&.open {
+		transform: translate3d(320px, 0,0);
+	}
+
+
+}
+
+.infowindowImg{
+	height: 100px;
+	width: 200px;
+}

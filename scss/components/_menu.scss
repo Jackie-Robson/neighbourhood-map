@@ -1,0 +1,30 @@
+#menu{
+	display: inline;
+	position: fixed;
+	left: 0;
+	width:290px;
+	height : 100%;
+	padding: 15px;
+	color: white;
+	background-color: black;
+	z-index: 2;
+	transform: translate3d(-320px,0,0);
+	transition: 0.5s;
+	font-family: sans-serif;
+
+	p{
+		display: inline;
+	};
+
+	input{
+		display: inline;
+	};
+
+	&.open {
+		transform: translate3d(0,0,0);
+	}
+}
+
+.hide{
+	display: none;
+}
