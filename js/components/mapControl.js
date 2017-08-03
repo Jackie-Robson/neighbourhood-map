@@ -1,5 +1,6 @@
 var map;
 
+
 var infowindow = new google.maps.InfoWindow()
 
 function initMap() {

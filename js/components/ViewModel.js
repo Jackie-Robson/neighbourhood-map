@@ -60,10 +60,8 @@ function ViewModel() {
  	};
  }
 
-	self.filteredItems = ko.computed(() => ko.utils.arrayFilter(self.markers(), (marker) => {
-    // Check if title matches search
+	self.filteredItems = ko.computed(function(){ko.utils.arrayFilter(self.markers(), function(marker){
     if (marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1) {
-      // Display matching Markers
       if (marker) {
         marker.setMap(map);
       }
@@ -71,7 +69,7 @@ function ViewModel() {
       marker.setMap(null);
     }
     return marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1;
-  }), self);
+  })}, self);
 
 	self.initMarkers()
 
