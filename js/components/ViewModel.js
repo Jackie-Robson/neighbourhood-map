@@ -60,18 +60,19 @@ function ViewModel() {
  	};
  }
 
-	self.filteredItems = ko.computed(function (location) {
-	var filter = self.filter();
-		if (!filter) {
-				return self.markers();
-		} else {
-				var filtered = ko.utils.arrayFilter(self.markers, function (location) {
-						return location === filter;
-				});
+	self.filteredItems = ko.computed(() => ko.utils.arrayFilter(self.markers(), (marker) => {
+    // Check if title matches search
+    if (marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1) {
+      // Display matching Markers
+      if (marker) {
+        marker.setMap(map);
+      }
+    } else if (marker) {
+      marker.setMap(null);
+    }
+    return marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1;
+  }), self);
 
-				return self.markers = filtered
-		}
-	})
 	self.initMarkers()
 
 }
