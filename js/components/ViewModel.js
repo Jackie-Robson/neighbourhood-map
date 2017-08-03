@@ -4,21 +4,21 @@ var mapContainer = $('#map');
 var filterForm = $('#filterForm');
 
 var openMenu = function(){
-	menu.toggleClass('open')
-	mapContainer.toggleClass('open')
+	menu.toggleClass('open');
+	mapContainer.toggleClass('open');
 };
 
 var hide = function(){
-	filterForm.toggleClass('hide')
+	filterForm.toggleClass('hide');
 };
 
 var listClick = function(e){
-	google.maps.event.trigger(e, 'click')
+	google.maps.event.trigger(e, 'click');
 };
 
 
 
-var typeOfLocation = []
+var typeOfLocation = [];
 
 
 
@@ -30,7 +30,7 @@ function ViewModel() {
 	this.hideForm = hide;
 	self.markers = ko.observableArray([]);
 	self.filter = ko.observable('');
-	self.filterItems = ko.utils.arrayFilter()
+	self.filterItems = ko.utils.arrayFilter();
 	self.initMarkers = function initMarkers(){
  	for ( var i = 0; i < locations.length; i++ ) {
  		var position = locations[ i ].location;
@@ -53,12 +53,11 @@ function ViewModel() {
  			nyTimesQuery : nyTimesQuery
  		}
  	);
- 		marker.addListener( 'click', function() {
- 			populateInfoWindow( this, infowindow );
- 		} );
+ 		marker.addListener( 'click', populateInfoWindow( this, infowindow );
+  	);
  		self.markers.push( marker );
- 	};
- }
+ 	}
+};
 
 	self.filteredItems = ko.computed(function(){ko.utils.arrayFilter(self.markers(), function(marker){
     if (marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1) {
@@ -71,7 +70,7 @@ function ViewModel() {
     return marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1;
   })}, self);
 
-	self.initMarkers()
+	self.initMarkers();
 
 }
 
