@@ -59,6 +59,7 @@ function ViewModel() {
  	}
 };
 
+<<<<<<< HEAD
 	self.filteredItems = ko.computed(function(){ko.utils.arrayFilter(self.markers(), function(marker){
     if (marker.title.toLowerCase().indexOf(self.filter().toLowerCase()) !== -1) {
       if (marker) {
@@ -71,6 +72,21 @@ function ViewModel() {
   })}, self);
 
 	self.initMarkers();
+=======
+	self.filteredItems = ko.computed(function (location) {
+	var filter = self.filter();
+		if (!filter) {
+				return self.markers();
+		} else {
+				var filtered = ko.utils.arrayFilter(self.markers, function (location) {
+						return location === filter;
+				});
+
+				return self.markers = filtered
+		}
+	})
+	self.initMarkers()
+>>>>>>> parent of 2d5b6f3... Filter Fix and README
 
 }
 
