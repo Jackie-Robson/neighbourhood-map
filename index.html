@@ -25,7 +25,7 @@
 	<form id="filterForm" data-bind="">
 		<input data-bind="value: filter ,valueUpdate: 'keyup'" autocomplete="off" type="text" >
 		<p>Filter Locations  &#8954;</p>
-	        <ul data-bind="foreach: markers" >
+	        <ul data-bind="foreach: filteredItems" >
 	            <li data-bind="index: $data">
 	                <a data-bind="text: $data.title, click: listClick"></a>
 	</form>
