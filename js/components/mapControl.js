@@ -18,40 +18,42 @@ var populateInfoWindow = function( marker, infowindow ) {
 		infowindow.marker = marker;
 
 		var streetViewLocation = marker.search;
-		var streetView = 'http://maps.googleapis.com/maps/api/streetview?size=200x100&location='+streetViewLocation+'&key=AIzaSyCPQHFprpz7RDVGh5OymViX72s7XRCgQHs';
+		var streetView = 'http://maps.googleapis.com/maps/api/streetview?size=200x100&location=' + streetViewLocation + '&key=AIzaSyCPQHFprpz7RDVGh5OymViX72s7XRCgQHs';
 
-		marker.setAnimation(google.maps.Animation.BOUNCE);
-		setTimeout(function() {
-			infowindow.marker.setAnimation(null);},800);
+		marker.setAnimation( google.maps.Animation.BOUNCE );
+		setTimeout( function() {
+			infowindow.marker.setAnimation( null );
+		}, 800 );
 
-		infowindow.setContent( '<img class="infowindowImg" src='+streetView+'><h5>'+marker.title+ '<h5><div>' + marker.content + '</div> <ul id="articles"></ul>'  );
+		infowindow.setContent( '<img class="infowindowImg" src=' + streetView + '><h5>' + marker.title + '<h5><div>' + marker.content + '</div> <ul id="articles"></ul>' );
 		infowindow.open( map, marker );
 
 		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-		url += '?' + $.param({
+		url += '?' + $.param( {
 			'api-key': "f26215c383b340848fd37840fdd3cc09",
 			'fq': infowindow.marker.nyTimesQuery
-		});
+		} );
 
 		// this code block handles the newyork times article api
 
-		$.ajax({
+		$.ajax( {
 			url: url,
 			method: 'GET',
-			success: function(data) {
+			success: function( data ) {
 				var articles = data.response.docs;
-				for(var i=0; i < 2; i++){
-					var article = articles[i];
-					$('#articles').append('<li class="article"><a href="'+article.web_url+'">'+article.headline.main+'</a><p>'+article.snippet+'</p></li>');
+				for ( var i = 0; i < 2; i++ ) {
+					var article = articles[ i ];
+					$( '#articles' ).append( '<li class="article"><a href="' + article.web_url + '">' + article.headline.main + '</a><p>' + article.snippet + '</p></li>' );
 				}
 			},
-			error : function(){
-				$("#articles").replaceWith('<h3 class="nytimes-header"> Data could not load! </h3>');
-			}, fail : function(err) {
+			error: function() {
+				$( "#articles" ).replaceWith( '<h3 class="nytimes-header"> Data could not load! </h3>' );
+			},
+			fail: function( err ) {
 				throw err;
 			}
 
-		});
+		} );
 		infowindow.addListener( 'closeclick', function() {
 			infowindow.close();
 		} );
