@@ -2,7 +2,6 @@ var menuBtn = $( '#menuBtn' );
 var menu = $( '#menu' );
 var mapContainer = $( '#map' );
 var filterForm = $( '#filterForm' );
-var markerDrop = $( '#markerDrop' );
 var openMenu = function() {
 	menu.toggleClass( 'open' );
 	mapContainer.toggleClass( 'open' );
@@ -82,7 +81,6 @@ function ViewModel() {
 	self.filter = ko.observable( '' );
 	self.filterItems = ko.utils.arrayFilter();
 	self.initMarkers = function initMarkers() {
-		hide();
 		for ( var i = 0; i < locations.length; i++ ) {
 			var position = locations[ i ].location;
 			var title = locations[ i ].title;
@@ -127,6 +125,7 @@ function ViewModel() {
 		return marker.title.toLowerCase().indexOf( self.filter().toLowerCase() ) !== -1;
 	} ), self );
 
+	self.initMarkers();
 }
 
 
