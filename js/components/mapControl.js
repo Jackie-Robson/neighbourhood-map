@@ -8,7 +8,9 @@ function initMap() {
 			lat: 51.4983118,
 			lng: -0.0626111
 		},
-		zoom: 14
+		zoom: 14,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		disableDefaultUI: true
 	} );
 }
 

@@ -21,9 +21,7 @@ var infowindow = new google.maps.InfoWindow();
 var populateInfoWindow = function( marker, infowindow ) {
 	if ( infowindow.marker != marker ) {
 		infowindow.marker = marker;
-
-		var streetViewLocation = marker.search;
-		var streetView = 'http://maps.googleapis.com/maps/api/streetview?size=200x100&location=' + streetViewLocation + '&key=AIzaSyCPQHFprpz7RDVGh5OymViX72s7XRCgQHs';
+		 map.panTo(marker.getPosition());
 
 		marker.setAnimation( google.maps.Animation.BOUNCE );
 		setTimeout( function() {
@@ -58,10 +56,10 @@ var populateInfoWindow = function( marker, infowindow ) {
 		} );
 
 
-		var contentStr = '<img class="infowindowImg" src=' + streetView + '><h5>' + marker.title + '<h5><div>' + marker.content + '</div> <ul id="articles"></ul>';
+		var contentStr = '<div class="infoWindow"><h5>' + marker.title + '<h5><div>' + marker.content + '</div> <ul id="articles"></ul></div>';
 
 
-		setTimeout( 300, infowindow.setContent( contentStr ) );
+		setTimeout( 30, infowindow.setContent( contentStr ) );
 		infowindow.open( map, marker );
 	}
 };
