@@ -3,7 +3,7 @@
 
 <head>
 	<title>Simple Map</title>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./scss/main.css">
 
@@ -15,6 +15,7 @@
 		<nav>
 			<button data-bind="click: openMenu" id="menuBtn">&#9776;</button>
 			<h1> Browse my frequented locations</h1>
+			<button id="markerDrop" data-bind="click: initMarkers ">Drop the Markers!</button>
 		</nav>
 	</header>
 
@@ -37,11 +38,11 @@
 
 </body>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/libs/jQuery.js"></script>
 <script type="text/javascript" src="js/libs/knockout.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBbAYqvA-HeajtPp1Pl1LUlqqHRUzn_67k"></script>
-<script asyn defer type="text/javascript" src="js/components/model.js"></script>
-<script async type="text/javascript" src="js/components/mapControl.js"></script>
-<script async defer src="js/components/ViewModel.js"></script>
+<script type="text/javascript" src="js/components/model.js"></script>
+<script type="text/javascript" src="js/components/mapControl.js"></script>
+<script defer src="js/components/ViewModel.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBbAYqvA-HeajtPp1Pl1LUlqqHRUzn_67k&callback=initMap" onerror="mapFail()"></script>
 
 </html>
