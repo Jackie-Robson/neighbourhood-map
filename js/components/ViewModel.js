@@ -82,7 +82,7 @@ function ViewModel() {
 	self.filter = ko.observable( '' );
 	self.filterItems = ko.utils.arrayFilter();
 	self.initMarkers = function initMarkers() {
-		hide()
+		hide();
 		for ( var i = 0; i < locations.length; i++ ) {
 			var position = locations[ i ].location;
 			var title = locations[ i ].title;
@@ -105,7 +105,7 @@ function ViewModel() {
 			} );
 			self.markers.push( marker );
 		}
-		self.listeners()
+		self.listeners();
 	};
 	self.listeners = function() {
 		self.markers().forEach( function( marker ) {
